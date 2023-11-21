@@ -8,9 +8,9 @@
 <%# ----------- BANNER HERO ---------- %>
 <div class="banner py-5 hero-index" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.ctfassets.net/gscn32h7ckds/4LhtA3RN4lmeKs2fEuLaIg/ed06210e1db05ce71d419788a1a5977b/underwear_outlet_banner_CM.jpg);">
   <div class="container hero-details">
-    <h1>UnderWhere</h1>
-    <p>Where everything appened</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+    <h1>YOUR SLIP EVERYWHERE</h1>
+    <p>No time to slip</p>
+    <a class="btn btn-flat" href="#ancre-index">Accéder aux offres</a>
   </div>
 </div>
 
@@ -19,29 +19,29 @@
 
 <%# ---------  GENERATION DES CARDS ----------  %>
 
+<%# INTRO %>
+<h1 class="text-center mt-2" id="ancre-index">It's time to slip 🩲</h1>
+
+<%# CARD %>
 <div class="container">
-<div class="row justify-content-center">
 <% @underwears.each do |underwear| %>
-
-  <div class="card mb-3" >
-    <div class="row g-0">
-      <div class="col-md-4">
-        <%= image_tag underwear.url_photo, class: "img-fluid w-100 h-100" %>
-      </div>
-
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title"><%= underwear.title %></h5>
-          <p class="card-text"><%= underwear.description %></p>
-		      <%= link_to "En savoir plus", underwear_path(underwear) %>
-        </div>
-      </div>
+  <div class="card-product my-5 p-2 border rounded">
+  <%# CI DESSOUS / METTRE EN PLACE CLOUDINARY POUR UPLOAD IMAGE %>
+    <%= image_tag underwear.url_photo, class: "img-fluid w-100 h-100" %>
+    <div class="card-product-infos">
+      <h2 class="mt-2"><%= underwear.title %></h2>
+      <p class="mt-2"><%= underwear.description %></p>
+      <%= link_to "En savoir plus", underwear_path(underwear) %>
     </div>
-
-  <% end %>
-
-</div>
-</div>
+  </div>
+<% end %>
 </div>
 
-  <%= link_to "Add a slip!", new_underwear_path, class: "btn btn-primary" %>
+
+
+
+
+
+
+
+<%= link_to "Add a slip!", new_underwear_path, class: "btn btn-primary" %>
