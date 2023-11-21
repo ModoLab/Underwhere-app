@@ -15,6 +15,7 @@
       <div>
         <h2><%= @underwear.title %></h2>
         <p><%= @underwear.description %></p>
+        <%= link_to "Book this slip!", new_underwear_booking(underwear_id), class: "btn btn-primary" %>
       </div>
     </div>
     </div>
