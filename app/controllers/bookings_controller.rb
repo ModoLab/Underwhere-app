@@ -1,17 +1,18 @@
 class BookingsController < ApplicationController
   def new
     @booking = Booking.new
+    @underwear = Underwear.find(params[:underwear_id])
     @user = @booking.user
   end
 
   def create
     @booking = Booking.new(booking_params)
     @underwear = Underwear.find(params[:underwear_id])
-    @booking.underwear = @booking
-    @user = @booking.underwear.user
+    @booking.user = current_user
+    @booking.underwear = @underwear
     @booking.save
     if @booking.save
-      redirect_to current_user_path(@user)
+      redirect_to underwear_path(@underwear)
     else
       render :new, status: :unprocessable_entity
     end
