@@ -11,7 +11,7 @@
 <div class="card mb-3" >
     <div class="row g-0">
       <div class="col-md-4">
-        <%= image_tag @underwear.url_photo, class: "img-fluid w-100 h-100" %>
+        <%= cl_image_tag @underwear.photo.key, class: "img-fluid w-100 h-100", crop: :fill %>
       </div>
 
       <div class="col-md-8">

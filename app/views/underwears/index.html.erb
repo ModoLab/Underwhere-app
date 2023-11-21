@@ -27,7 +27,10 @@
 <% @underwears.each do |underwear| %>
   <div class="card-product my-5 p-2 border rounded">
   <%# CI DESSOUS / METTRE EN PLACE CLOUDINARY POUR UPLOAD IMAGE %>
-    <%= image_tag underwear.url_photo, class: "img-fluid w-100 h-100" %>
+    <%# <%= image_tag underwear.url_photo, class: "img-fluid w-100 h-100" %>
+    <% if underwear.photo.attached? %>
+      <%= cl_image_tag underwear.photo.key, class: "img-fluid w-100 h-100", crop: :fill %>
+    <% end %>
     <div class="card-product-infos">
       <h2 class="mt-2"><%= underwear.title %></h2>
       <p class="mt-2"><%= underwear.description %></p>

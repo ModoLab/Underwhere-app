@@ -20,7 +20,6 @@ class UnderwearsController < ApplicationController
 
 
     @underwear.user = current_user
-    raise
     if @underwear.save
 
       redirect_to underwears_path
@@ -51,6 +50,6 @@ class UnderwearsController < ApplicationController
   end
 
   def underwear_params
-    params.require(:underwear).permit(:title, :description)
+    params.require(:underwear).permit(:title, :description, :photo)
   end
 end

@@ -10,11 +10,12 @@
 <%= simple_form_for(@underwear) do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.input :url_photo, placeholder: 'https://garcon-francais.fr/old_build/img/mif/calecon-banner.jpg' %>
+  <%# <%= f.input :url_photo, placeholder: 'https://garcon-francais.fr/old_build/img/mif/calecon-banner.jpg' %> 
+  <%= f.input :photo, as: :file %>
+
   <%= f.submit %>
 <% end %>
 
 
   <%= link_to "Back", underwears_path, class: "btn btn-primary"  %>
 </div>
-
