@@ -1,2 +1,31 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+<p>Email: <%= @user.email %></p>
+<p>Créé le: <%= @user.created_at %></p>
+<p>Mis à jour le: <%= @user.updated_at %></p>
+
+<h3>Mes Réservations</h3>
+<% if @bookings.present? %>
+  <ul>
+    <% @bookings.each do |booking| %>
+      <li>
+        <%= link_to "Réservation ##{booking.id}", booking_path(booking) %>
+        <!-- Ajoutez d'autres détails sur la réservation au besoin -->
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Aucune réservation pour le moment.</p>
+<% end %>
+
+<h3>Mes Annonces</h3>
+<% if @underwears.present? %>
+  <ul>
+    <% @underwears.each do |underwear| %>
+      <li>
+        <%= link_to underwear.title, underwear_path(underwear) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Aucune annonce pour le moment.</p>
+<% end %>
