@@ -18,8 +18,9 @@
         <div class="card-body">
           <h5 class="card-title"><%= @underwear.title %></h5>
           <p class="card-text"><%= @underwear.description %></p>
-          
+
 		      <%= link_to "En savoir plus", underwear_path(@underwear) %>
+          <%= link_to "Book this slip!", new_underwear_booking_path(@underwear) %>
         </div>
       </div>
     </div>
