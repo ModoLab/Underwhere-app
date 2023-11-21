@@ -1,16 +1,26 @@
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1640765937555-6f413ed1d936?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+<%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1640765937555-6f413ed1d936?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
   <div class="text-center py-5">
     <h1>UnderWhere</h1>
   </div>
+</div> %>
+
+
+<%# ----------- BANNER HERO ---------- %>
+<div class="banner py-5 hero-index" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.ctfassets.net/gscn32h7ckds/4LhtA3RN4lmeKs2fEuLaIg/ed06210e1db05ce71d419788a1a5977b/underwear_outlet_banner_CM.jpg);">
+  <div class="container hero-details">
+    <h1>UnderWhere</h1>
+    <p>Where everything appened</p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
 </div>
+
+
 
 
 <%# ---------  GENERATION DES CARDS ----------  %>
 
 <div class="container">
 <div class="row justify-content-center">
-
-
 <% @underwears.each do |underwear| %>
 
   <div class="card mb-3" >
@@ -27,7 +37,6 @@
         </div>
       </div>
     </div>
-
 
   <% end %>
 
