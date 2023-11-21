@@ -1,2 +1,24 @@
-<h1>Underwears#index</h1>
-<p>Find me in app/views/underwears/index.html.erb</p>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1640765937555-6f413ed1d936?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+<div class="text-center py-5">
+<h1>🩲 UnderWhere</h1>
+</div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-10">
+
+<%# ---------  GENERATION DES CARDS ----------  %>
+        <ul>
+          <% @underwears.each do |underwear| %>
+          <li class="card-product">>
+            <h3><%= underwear.title %></h3>
+            <p><%= underwear.description %></p>
+          </li>
+          <%= link_to "En savoir plus", underwear(underwear) %>
+          <% end %>
+        </ul>
+</div>
+</div>
+</div>
