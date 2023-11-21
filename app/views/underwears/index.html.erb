@@ -7,14 +7,32 @@
 
 <%# ---------  GENERATION DES CARDS ----------  %>
 
-  <ul>
-    <% @underwears.each do |underwear| %>
-    <li class="card-product">
-      <h3><%= underwear.title %></h3>
-      <p><%= underwear.description %></p>
-    </li>
-    <%= link_to "En savoir plus", underwear_path(underwear) %>
-    <% end %>
-  </ul>
+<div class="container">
+<div class="row justify-content-center">
+
+
+<% @underwears.each do |underwear| %>
+
+  <div class="card mb-3" >
+    <div class="row g-0">
+      <div class="col-md-4">
+        <%= image_tag underwear.url_photo, class: "img-fluid w-100 h-100" %>
+      </div>
+
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= underwear.title %></h5>
+          <p class="card-text"><%= underwear.description %></p>
+		      <%= link_to "En savoir plus", underwear_path(underwear) %>
+        </div>
+      </div>
+    </div>
+
+
+  <% end %>
+
+</div>
+</div>
+</div>
 
   <%= link_to "Add a slip!", new_underwear_path, class: "btn btn-primary" %>
