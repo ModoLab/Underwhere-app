@@ -1,2 +1,13 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<div class="container"><h1>Complete your booking</h1>
+    <%= simple_form_for [@underwear, @booking] do |f| %>
+      <%= f.input :start_date,
+                as: :string,
+                input_html: { data: { controller: "datepicker" } } %>
+      <%= f.input :end_date,
+                as: :string,
+                input_html: { data: { controller: "datepicker" } } %>
+      <%= f.submit "I book my slip!", class: "btn btn-primary" %>
+    <% end %>
+  <br>
+  <%= link_to "Back to the slip!", underwear_path(@underwear), class: "btn btn-info"  %>
+</div>
