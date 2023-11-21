@@ -1,11 +1,20 @@
 class BookingsController < ApplicationController
   def new
-    raise
     @booking = Booking.new
-    @user = User.find(user_id)
+    @user = @booking.user
   end
 
   def create
+    @booking = Booking.new(booking_params)
+    @underwear = Underwear.find(params[:underwear_id])
+    @booking.underwear = @booking
+    @user = @booking.underwear.user
+    @booking.save
+    if @booking.save
+      redirect_to current_user_path(@user)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
