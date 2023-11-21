@@ -2,6 +2,7 @@ class UnderwearsController < ApplicationController
   before_action :find_underwear, only: %i[show edit update destroy]
 
   def index
+
     @underwears = Underwear.all
   end
 
@@ -14,16 +15,23 @@ class UnderwearsController < ApplicationController
     @underwear = Underwear.new
   end
 
+  def create
+    @underwear = Underwear.new(underwear_params)
+
+
+    @underwear.user = current_user
+    raise
+    if @underwear.save
+
+      redirect_to underwears_path
+    else
+      render :new
+    end
+  end
+
   def edit
     @underwear = Underwear.find(params[:id])
   end
-
-  def create
-    @underwear = Underwear.new(underwear_params)
-    @underwear.save
-    redirect_to underwears_path
-  end
-
 
   def update
     @underwear = Underwear.find(params[:id])
