@@ -4,41 +4,15 @@
 </div>
 </div>
 
-<div class="container">
-  <div class="row">
-
-    <div class="col-10">
 
 <%# ---------  GENERATION DES CARDS ----------  %>
- front-underwear
 
-
+  <ul>
     <% @underwears.each do |underwear| %>
-  <div class="rounded border">
-    <div class="card-trip">
-      <%# <%= image_tag underwear.url_photo, class: "img-slip" %> %>
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= underwear.title %></h2>
-          <p><%= underwear.description %></p>
-        </div>
-        <%= link_to "Voir le détail", underwear_path(underwear) %>
-      </div>
-    </div>
-  </div>
-<% end %>
-
-=======
-        <ul>
-          <% @underwears.each do |underwear| %>
-          <li class="card-product">>
-            <h3><%= underwear.title %></h3>
-            <p><%= underwear.description %></p>
-          </li>
-          <%= link_to "En savoir plus", underwear_path(underwear) %>
-          <% end %>
-        </ul>
- master
-</div>
-</div>
-</div>
+    <li class="card-product">
+      <h3><%= underwear.title %></h3>
+      <p><%= underwear.description %></p>
+    </li>
+    <%= link_to "En savoir plus", underwear_path(underwear) %>
+    <% end %>
+  </ul>
