@@ -10,15 +10,23 @@
     <div class="col-10">
 
 <%# ---------  GENERATION DES CARDS ----------  %>
-        <ul>
-          <% @underwears.each do |underwear| %>
-          <li class="card-product">>
-            <h3><%= underwear.title %></h3>
-            <p><%= underwear.description %></p>
-          </li>
-          <%= link_to "En savoir plus", underwears_path(underwear) %>
-          <% end %>
-        </ul>
+
+
+    <% @underwears.each do |underwear| %>
+  <div class="rounded border">
+    <div class="card-trip">
+      <%# <%= image_tag underwear.url_photo, class: "img-slip" %> %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= underwear.title %></h2>
+          <p><%= underwear.description %></p>
+        </div>
+        <%= link_to "Voir le détail", underwear_path(underwear) %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 </div>
 </div>
 </div>
