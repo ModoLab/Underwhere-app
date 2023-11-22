@@ -8,3 +8,9 @@
   background-position: bottom;
   background-repeat: no-repeat;
 }
+
+#img-product {
+  min-width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+}

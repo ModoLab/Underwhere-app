@@ -1,50 +1,68 @@
-<%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1640765937555-6f413ed1d936?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
-  <div class="text-center py-5">
-    <h1>UnderWhere</h1>
-  </div>
-</div> %>
-
 
 <%# ----------- BANNER HERO ---------- %>
 <div class="banner py-5 hero-index" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.ctfassets.net/gscn32h7ckds/4LhtA3RN4lmeKs2fEuLaIg/ed06210e1db05ce71d419788a1a5977b/underwear_outlet_banner_CM.jpg);">
   <div class="container hero-details">
-    <h1>YOUR SLIP EVERYWHERE</h1>
-    <p>No time to slip</p>
-    <a class="btn btn-flat" href="#ancre-index">Accéder aux offres</a>
+    <h1 class="display-3">YOUR SLIP</h1>
+    <h1 class="display-5">EVERYWHERE</h1>
+    <%= link_to "Voir les offres", "#ancre-index", class: "btn btn-info" %>
   </div>
 </div>
-
-
 
 
 <%# ---------  GENERATION DES CARDS ----------  %>
 
 <%# INTRO %>
-<h1 class="text-center mt-2" id="ancre-index">It's time to slip 🩲</h1>
+<h1 class="text-center mt-5 display-4" id="ancre-index">It is always time to slip 🩲</h1>
 
 <%# CARD %>
 <div class="container">
-<% @underwears.each do |underwear| %>
-  <div class="card-product my-5 p-2 border rounded">
-  <%# CI DESSOUS / METTRE EN PLACE CLOUDINARY POUR UPLOAD IMAGE %>
-    <%# <%= image_tag underwear.url_photo, class: "img-fluid w-100 h-100" %>
-    <% if underwear.photo.attached? %>
-      <%= cl_image_tag underwear.photo.key, class: "img-fluid w-100 h-100", crop: :fill %>
+<div class="row">
+
+  <div class="col-12 d-flex flex-row justify-content-center">
+
+    <% @underwears.each do |underwear| %>
+      <div class="card-product my-5 mx-1 p-2 border shadow-sm bg-white rounded col-3">
+      <%# CI DESSOUS / METTRE EN PLACE CLOUDINARY POUR UPLOAD IMAGE %>
+        <%# <%= image_tag underwear.url_photo, class: "img-fluid w-100 h-100" %>
+        <% if underwear.photo.attached? %>
+          <%= cl_image_tag underwear.photo.key, class: "img-fluid w-100 h-75", crop: :fill, id:"img-product" %>
+        <% end %>
+        <div class="card-product-infos">
+          <h2 class="mt-2"><%= underwear.title %></h2>
+          <p class="mt-2"><%= underwear.description %></p>
+          <%= link_to "En savoir plus", underwear_path(underwear),class: "btn btn-primary" %>
+        </div>
+      </div>
     <% end %>
-    <div class="card-product-infos">
-      <h2 class="mt-2"><%= underwear.title %></h2>
-      <p class="mt-2"><%= underwear.description %></p>
-      <%= link_to "En savoir plus", underwear_path(underwear) %>
-    </div>
   </div>
-<% end %>
+  </div>
+
+<div class="row">
+<div class="col-12 d-flex justify-content-center ">
+  <div class="col-4 d-flex justify-content-center ">
+    <%= link_to "Add a slip!", new_underwear_path, class: "btn btn-info" %>
+  </div>
+</div>
+</div>
+
+
+</div>
 </div>
 
 
 
+<%# --------- CAROUSSEL BANNER ------------- %>
 
-
-
-
-
-<%= link_to "Add a slip!", new_underwear_path, class: "btn btn-primary" %>
+<div id="carouselSlidesOnly" class="carousel slide my-5" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag("banner_1.png", alt: "Logo UnderWhere",class: "d-block w-100", id: "logo-underwear") %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag("banner_2.png", alt: "Logo UnderWhere",class: "d-block w-100", id: "logo-underwear") %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag("banner_3.png", alt: "Logo UnderWhere",class: "d-block w-100", id: "logo-underwear") %>
+    </div>
+  </div>
+</div>
