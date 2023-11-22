@@ -17,11 +17,8 @@ class UnderwearsController < ApplicationController
 
   def create
     @underwear = Underwear.new(underwear_params)
-
-
     @underwear.user = current_user
     if @underwear.save
-
       redirect_to underwears_path
     else
       render :new
@@ -40,7 +37,7 @@ class UnderwearsController < ApplicationController
   def destroy
     @underwear = Underwear.find(params[:id])
     @underwear.destroy
-    redirect_to user_path(user), status: :see_other
+    redirect_to user_path(current_user), status: :see_other
   end
 
   private

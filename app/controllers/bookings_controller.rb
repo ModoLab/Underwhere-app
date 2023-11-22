@@ -12,18 +12,16 @@ class BookingsController < ApplicationController
     @booking.underwear = @underwear
     @booking.save
     if @booking.save
-      redirect_to underwear_path(@underwear)
+      redirect_to user_path(current_user)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
-    raise
-    @booking = Booking.find(params[:underwear_id])
-    @underwear.booking = @booking
+    @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to user_path(user), status: :see_other
+    redirect_to user_path(current_user), status: :see_other
   end
 
   private
