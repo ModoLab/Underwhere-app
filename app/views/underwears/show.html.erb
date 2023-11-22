@@ -1,32 +1,40 @@
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1640765937555-6f413ed1d936?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
-  <div class="text-center py-5">
-    <h1>UnderWhere détail</h1>
+<%# ----------- CARD HEADER SHOW ------------ %>
+
+<%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1640765937555-6f413ed1d936?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)"> %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= image_url('bg-show.png') %> ">
+
+  <div class="text-center py-5 text-white">
+    <h1 class="display-5">Quelques infos à propos du</h1>
+    <h1 class="display-4"><strong><%= @underwear.title %></strong></h1>
   </div>
 </div>
 
-<div class="container">
-<div class="row d-flex justify-content-center">
 
+<%# ----------- CARD DETAIL SLIP ------------ %>
 
-<div class="card mb-3" >
-    <div class="row g-0">
-      <div class="col-md-4">
+<div class="container pt-3 ">
+  <div class="row justify-content-center">
+    <div class="card w-75 bg-white border rounded shadow-sm d-flex flex-row">
+
+      <div class="col-4 my-2 ">
         <% if @underwear.photo.attached? %>
-          <%= cl_image_tag @underwear.photo.key, class: "img-fluid w-100 h-100", crop: :fill %>
+          <%= cl_image_tag @underwear.photo.key, class: "img-fluid w-100 h-100", crop: :fill, id:"img-show" %>
         <% end %>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title"><%= @underwear.title %></h5>
-          <p class="card-text"><%= @underwear.description %></p>
-
-          <%= link_to "Book this slip!", new_underwear_booking_path(@underwear) %>
         </div>
+
+
+      <div class="card-body col-8 d-flex flex-column justify-content-start">
+        <h5 class="card-title display-5"><%= @underwear.title %></h5>
+        <p class="card-text detail-slip-user">Slip ajouté par : <em><strong><%= @underwear.user.first_name %><%= @underwear.user.last_name %></strong></em></p>
+        <p class="card-text"><%= @underwear.description %></p>
+
+        <div class="col-4 justify-content-end">
+          <%= link_to "Réserver ce slip!", new_underwear_booking_path(@underwear), class: "btn btn-primary" %>
+        </div>
+
       </div>
     </div>
 
+  </div>
 
-
-
-</div>
 </div>
