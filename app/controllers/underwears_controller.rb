@@ -8,7 +8,7 @@ class UnderwearsController < ApplicationController
 
   def show
     @underwear = Underwear.find(params[:id])
-    @booking = @underwear.booking
+    #@booking = @underwear.booking
   end
 
   def new
@@ -40,7 +40,7 @@ class UnderwearsController < ApplicationController
   def destroy
     @underwear = Underwear.find(params[:id])
     @underwear.destroy
-    redirect_to underwears_path, status: :see_other
+    redirect_to user_path(user), status: :see_other
   end
 
   private
