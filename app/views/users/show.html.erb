@@ -4,18 +4,17 @@
 <p>Mis à jour le: <%= @user.updated_at %></p>
 
 <h3>Mes Réservations</h3>
-  <% if @bookings.present? %>
-    <% @bookings.each do |booking| %>
+  <% if @user.booked_underwears.present? %>
+    <% @user.booked_underwears.each do |booked_underwear| %>
       <div class="card-product my-5 mx-1 p-2 border shadow-sm bg-white rounded col-3">
-        <% if booking.underwear.photo.attached? %>
-          <%= cl_image_tag booking.underwear.photo.key, class: "img-fluid w-100 h-75", crop: :fill, id:"img-product" %>
+        <% if booked_underwear.photo.attached? %>
+          <%= cl_image_tag booked_underwear.photo.key, class: "img-fluid w-100 h-75", crop: :fill, id:"img-product" %>
         <% end %>
         <div class="card-product-infos">
-          <h2 class="mt-2"><%= booking.underwear.title %></h2>
-          <p class="mt-2"><%= booking.underwear.description %></p>
-          <p class="mt-2">Réservé du <%= booking.start_date%> au <%= booking.end_date %></p>
+          <h2 class="mt-2"><%= booked_underwear.title %></h2>
+          <p class="mt-2"><%= booked_underwear.description %></p>
         </div>
-          <%= link_to "Supprimer", underwear_booking_path(underwear_id), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
+          <%= link_to "Supprimer", underwear_booking_path(booked_underwear), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
       </div>
     <% end %>
   <% else %>
@@ -33,8 +32,8 @@
           <h2 class="mt-2"><%= underwear.title %></h2>
           <p class="mt-2"><%= underwear.description %></p>
         </div>
-      </div>
         <%= link_to "Supprimer", underwear_path(underwear), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
+      </div>
     <% end %>
 <% else %>
   <p>Aucun slip.</p>

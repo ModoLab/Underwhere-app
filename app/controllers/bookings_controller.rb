@@ -20,8 +20,10 @@ class BookingsController < ApplicationController
 
   def destroy
     raise
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:underwear_id])
+    @underwear.booking = @booking
     @booking.destroy
+    redirect_to user_path(user), status: :see_other
   end
 
   private
