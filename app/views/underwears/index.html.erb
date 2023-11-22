@@ -1,10 +1,10 @@
 
 <%# ----------- BANNER HERO ---------- %>
 <div class="banner py-5 hero-index" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.ctfassets.net/gscn32h7ckds/4LhtA3RN4lmeKs2fEuLaIg/ed06210e1db05ce71d419788a1a5977b/underwear_outlet_banner_CM.jpg);">
-  <div class="container hero-details">
-    <h1 class="display-3">YOUR SLIP</h1>
-    <h1 class="display-5">EVERYWHERE</h1>
-    <%= link_to "Voir les offres", "#ancre-index", class: "btn btn-info" %>
+  <div class="container hero-details ms-5">
+    <h1 class="display-3 text-white hero-title" >YOUR SLIP</h1>
+    <h1 class="display-5 text-white mb-4 hero-title">EVERYWHERE</h1>
+    <%= link_to "Voir les offres", "#ancre-index", class: "btn btn-primary text-white rounded shadow-sm" %>
   </div>
 </div>
 
@@ -12,7 +12,7 @@
 <%# ---------  GENERATION DES CARDS ----------  %>
 
 <%# INTRO %>
-<h1 class="text-center mt-5 display-4" id="ancre-index">It is always time to slip 🩲</h1>
+<h1 class="text-center mt-5 display-4 index-subtitle" id="ancre-index">It is always time to slip...</h1>
 
 <%# CARD %>
 <div class="container">
@@ -30,7 +30,8 @@
         <div class="card-product-infos">
           <h2 class="mt-2"><%= underwear.title %></h2>
           <p class="mt-2"><%= underwear.description %></p>
-          <%= link_to "En savoir plus", underwear_path(underwear),class: "btn btn-primary" %>
+          <%= link_to "En savoir plus", underwear_path(underwear),class: "btn btn-primary text-white rounded shadow-sm" %>
+
         </div>
       </div>
     <% end %>

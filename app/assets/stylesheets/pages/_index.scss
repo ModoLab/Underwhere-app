@@ -4,7 +4,7 @@
 
 .hero-index {
   height: 600px;
-  width: auto;
+  min-width: 100%;
   background-position: bottom;
   background-repeat: no-repeat;
 }
@@ -13,4 +13,12 @@
   min-width: 100%;
   max-height: 250px;
   object-fit: cover;
+}
+
+.hero-title {
+  font-weight: 600;
+}
+
+.index-subtitle {
+  font-weight: 400;
 }
