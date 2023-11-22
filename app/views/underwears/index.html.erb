@@ -31,7 +31,6 @@
           <h2 class="mt-2"><%= underwear.title %></h2>
           <p class="mt-2"><%= underwear.description %></p>
           <%= link_to "En savoir plus", underwear_path(underwear),class: "btn btn-primary" %>
-          <%= link_to "Supprimer", underwear_path(underwear), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
         </div>
       </div>
     <% end %>
