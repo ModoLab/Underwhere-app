@@ -41,7 +41,7 @@
           <% @user.bookings.each do |booking| %>
           <div class="card-product my-5 mx-1 p-2 border shadow-sm bg-white rounded col-3">
             <% if booking.underwear.photo.attached? %>
-            <%= cl_image_tag bookings.photo.key, class: "img-fluid w-100 h-75", crop: :fill, id:"img-product" %>
+            <%= cl_image_tag booking.underwear.photo.key, class: "img-fluid w-100 h-75", crop: :fill, id:"img-product" %>
             <% end %>
              <div class="card-product-infos">
               <h2 class="mt-2"><%= booking.underwear.title %></h2>
