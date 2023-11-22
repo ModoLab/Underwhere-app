@@ -4,29 +4,37 @@
 <p>Mis à jour le: <%= @user.updated_at %></p>
 
 <h3>Mes Réservations</h3>
-<% if @bookings.present? %>
-  <ul>
-    <% @bookings.each do |booking| %>
-      <li>
-        <%= link_to "Réservation ##{booking.id}", booking_path(booking) %>
-        <!-- Ajoutez d'autres détails sur la réservation au besoin -->
-      </li>
+  <% if @user.bookings.present? %>
+    <% @user.bookings.each do |booking| %>
+      <div class="card-product my-5 mx-1 p-2 border shadow-sm bg-white rounded col-3">
+        <% if booking.underwear.photo.attached? %>
+          <%= cl_image_tag bookings.photo.key, class: "img-fluid w-100 h-75", crop: :fill, id:"img-product" %>
+        <% end %>
+        <div class="card-product-infos">
+          <h2 class="mt-2"><%= booking.underwear.title %></h2>
+          <p class="mt-2"><%= booking.underwear.description %></p>
+        </div>
+          <%= link_to "Supprimer", booking_path(booking), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
+      </div>
     <% end %>
-  </ul>
-<% else %>
-  <p>Aucune réservation pour le moment.</p>
-<% end %>
+  <% else %>
+    <p>Aucune réservation.</p>
+  <% end %>
 
-<h3>Mes Annonces</h3>
-<% if @underwears.present? %>
-  <ul>
+<h3>Mes slips</h3>
+  <% if @underwears.present? %>
     <% @underwears.each do |underwear| %>
-      <li>
-      <p> <%= underwear.title  %> </p>
-        <%= link_to underwear.title, underwear_path(underwear) %>
-      </li>
+      <div class="card-product my-5 mx-1 p-2 border shadow-sm bg-white rounded col-3">
+        <% if underwear.photo.attached? %>
+          <%= cl_image_tag underwear.photo.key, class: "img-fluid w-100 h-75", crop: :fill, id:"img-product" %>
+        <% end %>
+        <div class="card-product-infos">
+          <h2 class="mt-2"><%= underwear.title %></h2>
+          <p class="mt-2"><%= underwear.description %></p>
+        </div>
+        <%= link_to "Supprimer", underwear_path(underwear), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
+      </div>
     <% end %>
-  </ul>
 <% else %>
-  <p>Aucune annonce pour le moment.</p>
+  <p>Aucun slip.</p>
 <% end %>
