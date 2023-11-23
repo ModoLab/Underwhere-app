@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon shadow">
   <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag("Underwhere-logo.png", alt: "Logo UnderWhere", id: "logo-underwear") %>
@@ -27,7 +27,8 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Se connecter", new_user_session_path, class: "nav-link d-inline-block" %>
+            <%= link_to "S'inscrire",  new_user_registration_path, class: "nav-link d-inline-block" %>
           </li>
         <% end %>
       </ul>

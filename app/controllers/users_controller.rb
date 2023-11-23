@@ -3,6 +3,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @underwears = @user.underwears
-    @bookings = @user.booked_underwears
+    #@bookings = @user.booked_underwears
   end
 end

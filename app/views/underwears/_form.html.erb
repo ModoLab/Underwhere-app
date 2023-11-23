@@ -1,6 +1,20 @@
-<%= simple_form_for(underwear) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit %>
- <% end %>
+<div class="modal fade" id="modalNewUnderwear" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= simple_form_for(underwear) do |f| %>
+        <div class="modal-body">
+          <%= f.input :title %>
+          <%= f.input :description %>
+          <%= f.input :photo, as: :file %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit class:"btn btn-outline-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

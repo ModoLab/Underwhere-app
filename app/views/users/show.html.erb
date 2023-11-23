@@ -1,6 +1,3 @@
-
-
-
 <div class="container">
   <div class="row">
 
@@ -9,7 +6,6 @@
       <div class="col-12 border bg-white p-3 rounded shadow-sm">
         <h3 class="text-center">Salut <strong><%= @user.first_name %></strong> ✌️</h3>
         <h5 class="text-center border-bottom pb-2">Voici tes infos personnelles :</h5>
-
 
         <div class="col-12 d-flex justify-space-around">
           <div class="col-8">
@@ -23,7 +19,7 @@
           </div>
 
           <div class="col-4">
-            <p><strong>Photo de profil :</p>
+            <p><strong>Photo de profil :</strong></p>
             <%# AJOUTER LA PHOTO DE PROFIL UPLOAD PAR LE USER (CLOUDINARY) %>
           </div>
         </div>
@@ -38,17 +34,17 @@
 
         <div class="col-12 d-flex justify-space-around">
           <% if @user.bookings.present? %>
-          <% @user.bookings.each do |booking| %>
-          <div class="card-product my-5 mx-1 p-2 border shadow-sm bg-white rounded col-3">
-            <% if booking.underwear.photo.attached? %>
-            <%= cl_image_tag booking.underwear.photo.key, class: "img-fluid w-100 h-75", crop: :fill, id:"img-product" %>
-            <% end %>
-             <div class="card-product-infos">
-              <h2 class="mt-2"><%= booking.underwear.title %></h2>
-              <p class="mt-2"><%= booking.underwear.description %></p>
-            </div>
-            <%= link_to "Supprimer", booking_path(booking), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
-          </div>
+            <% @user.bookings.each do |booking| %>
+              <div class="card-product my-5 mx-1 p-2 border shadow-sm bg-white rounded col-3">
+                <% if booking.underwear.photo.attached? %>
+                  <%= cl_image_tag booking.underwear.photo.key, class: "img-fluid w-100 h-75", crop: :fill, id:"img-product" %>
+                <% end %>
+                <div class="card-product-infos">
+                  <h2 class="mt-2"><%= booking.underwear.title %></h2>
+                  <p class="mt-2"><%= booking.underwear.description %></p>
+                </div>
+                <%= link_to "Supprimer", booking_path(booking), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
+              </div>
             <% end %>
           <% else %>
             <p class="text-center">Vous n'avez aucune réservation en cours</p>
@@ -64,36 +60,25 @@
         <h3 class="text-center">Mes slips en location :</h3>
 
         <div class="d-flex">
-
-      <% if @underwears.present? %>
-    <% @underwears.each do |underwear| %>
-      <div class="card-product my-5 mx-1 p-2 border shadow-sm bg-white rounded col-3">
-        <% if underwear.photo.attached? %>
-          <%= cl_image_tag underwear.photo.key, class: "img-fluid w-100 h-75", crop: :fill, id:"img-product" %>
-        <% end %>
-        <div class="card-product-infos">
-          <h2 class="mt-2"><%= underwear.title %></h2>
-          <p class="mt-2"><%= underwear.description %></p>
+          <% if @underwears.present? %>
+            <% @underwears.each do |underwear| %>
+              <div class="card-product my-5 mx-1 p-2 border shadow-sm bg-white rounded col-3">
+                <% if underwear.photo.attached? %>
+                  <%= cl_image_tag underwear.photo.key, class: "img-fluid w-100 h-75", crop: :fill, id:"img-product" %>
+                <% end %>
+                <div class="card-product-infos">
+                  <h2 class="mt-2"><%= underwear.title %></h2>
+                  <p class="mt-2"><%= underwear.description %></p>
+                </div>
+                <%= link_to "Supprimer", underwear_path(underwear), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
+              </div>
+            <% end %>
+          <% else %>
+            <p class="text-center">Vous n'avez actuellement aucun slip en location...</p>
+          <% end %>
         </div>
-        <%= link_to "Supprimer", underwear_path(underwear), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
-      </div>
-    <% end %>
-<% else %>
-  <p class="text-center">Vous n'avez actuellement aucun slip en location...</p>
-<% end %>
-
       </div>
 
-      </div>
     </div>
-
-
-
-
-
-
-
-
   </div>
-
 </div>
