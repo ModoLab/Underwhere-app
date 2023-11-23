@@ -5,10 +5,14 @@
 
       <div class="col-12 border bg-white p-3 rounded shadow-sm">
         <h3 class="text-center">Salut <strong><%= @user.first_name %></strong> ✌️</h3>
+
         <h5 class="text-center border-bottom pb-2">Voici tes infos personnelles :</h5>
 
         <div class="col-12 d-flex justify-space-around">
           <div class="col-8">
+          <div class="d-flex justify-content-center">
+            <%= link_to "Editer mon profil",edit_user_registration_path, class:"btn btn-primary"   %>
+          </div>
             <p><strong>Prénom :</strong> <%= @user.first_name %></p>
             <p><strong>Nom :</strong> <%= @user.last_name %></p>
             <p><strong>Adresse mail :</strong> <%= @user.email %></p>
