@@ -34,7 +34,7 @@
             </div>
           <% elsif user_signed_in? && @user == current_user %>
             <div class="col-6 justify-content-end ">
-              <%= link_to "Supprimer", underwear_path(@underwear), class: "btn btn-primary text-white" %>
+              <%= link_to "Supprimer", underwear_path(@underwear), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}, class: "btn btn-primary text-white" %>
             </div>
           <% else %>
             <div class="col-6 justify-content-end ">

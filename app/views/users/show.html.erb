@@ -70,7 +70,7 @@
                   <h2 class="mt-2"><%= underwear.title %></h2>
                   <p class="mt-2"><%= underwear.description %></p>
                 </div>
-                <%= link_to "Supprimer", underwear_path(underwear), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
+                <%= link_to "Supprimer", underwear_path(underwear), class: "btn btn-primary text-white", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
               </div>
             <% end %>
           <% else %>
