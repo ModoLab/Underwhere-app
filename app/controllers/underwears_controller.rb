@@ -9,11 +9,12 @@ class UnderwearsController < ApplicationController
       sql_subquery = "title ILIKE :query OR description ILIKE :query"
       @underwears = @underwears.where(sql_subquery, query: "%#{params[:query]}%")
     end
-    
+
   end
 
   def show
     @underwear = Underwear.find(params[:id])
+    @user = @underwear.user
     #@booking = @underwear.booking
 
   end
