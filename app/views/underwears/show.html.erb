@@ -1,7 +1,7 @@
 <%# ----------- CARD HEADER SHOW ------------ %>
 
 <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1640765937555-6f413ed1d936?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)"> %>
-<div class="card-category" id="bg-header" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= image_url('bg-show.png') %> ">
+<div class="card-category" id="bg-header" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= image_url('bg-show.png') %>') ">
 
   <div class="text-center py-5 text-white">
     <h1 class="display-5">Quelques infos à propos du</h1>
@@ -20,29 +20,28 @@
         <% if @underwear.photo.attached? %>
           <%= cl_image_tag @underwear.photo.key, class: "img-fluid w-100 h-100", crop: :fill, id:"img-show" %>
         <% end %>
-        </div>
-
+      </div>
 
       <div class="card-body col-8 d-flex flex-column justify-content-start">
         <h5 class="card-title display-5"><%= @underwear.title %></h5>
         <p class="card-text detail-slip-user">Slip ajouté par : <em><strong><%= @underwear.user.first_name %><%= @underwear.user.last_name %></strong></em></p>
         <p class="card-text"><%= @underwear.description %></p>
 
-
-        <% if user_signed_in? %>
-          <div class="col-4 justify-content-end">
-            <%= link_to "Réserver ce slip!", new_underwear_booking_path(@underwear), class: "btn btn-primary text-white" %>
-          </div>
-        <% else %>
-          <div class="col-6 justify-content-end ">
-            <%= link_to "Connecte-toi pour réserver", new_user_session_path, class: "btn btn-primary text-white" %>
-          </div>
+          <% if user_signed_in? && @user != current_user %>
+            <div class="col-6 justify-content-end ">
+              <%= link_to "Réserver ce slip!", new_underwear_booking_path(@underwear), class: "btn btn-primary text-white" %>
+            </div>
+          <% elsif user_signed_in? && @user == current_user %>
+            <div class="col-6 justify-content-end ">
+              <%= link_to "Supprimer", underwear_path(@underwear), class: "btn btn-primary text-white" %>
+            </div>
+          <% else %>
+            <div class="col-6 justify-content-end ">
+              <%= link_to "Connecte-toi pour réserver", new_user_session_path, class: "btn btn-primary text-white" %>
+            </div>
         <% end %>
-
 
       </div>
     </div>
-
   </div>
-
 </div>
