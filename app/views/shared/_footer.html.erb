@@ -1,10 +1,13 @@
 <footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Accueil</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Produits</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Qui sommes-nous</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Mon compte</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Préférences</a></li>
+
+      <% if user_signed_in? %>
+        <%= link_to "Accueil", underwears_path, class: "nav-link" %>
+        <%= link_to "Mon compte", user_path(current_user), class: "nav-link" %>
+        <%= link_to "Préférences", edit_user_registration_path(current_user), class: "nav-link" %>
+      <% end %>
+
+
     </ul>
     <p class="text-center text-body-secondary">© 2023 UnderWhere</p>
   </footer>
