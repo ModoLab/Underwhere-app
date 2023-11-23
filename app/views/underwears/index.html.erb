@@ -8,11 +8,27 @@
   </div>
 </div>
 
-
 <%# ---------  GENERATION DES CARDS ----------  %>
 
 <%# INTRO %>
 <h1 class="text-center mt-5 mb-5 display-4 index-subtitle" id="ancre-index">It's always time to slip</h1>
+
+ <%# SEARCHBAR %>
+<div class="row justify-content-center mb-3">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: underwears_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control rounded",
+            placeholder: "Chercher un article"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-info text-white" %>
+    <% end %>
+  </div>
+</div>
+
+
+
 
 <%# CARD %>
 <div class="container">
