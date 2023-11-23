@@ -1,11 +1,14 @@
 <div class="container"><h1>Complete your booking</h1>
     <%= simple_form_for [@underwear, @booking] do |f| %>
-      <%= f.input :start_date,
-                as: :string,
-                input_html: { data: { controller: "datepicker" } } %>
-      <%= f.input :end_date,
-                as: :string,
-                input_html: { data: { controller: "datepicker" } } %>
+    <%# faire le lien entre le controlleur stimulus et l'élément du DOM %>
+      <div data-controller="datepicker" data-datepicker-unavailable-dates-value= "<%= @unavailable_dates.to_json  %>">
+        <%= f.input :start_date,
+                  as: :string,
+                  input_html: {data: {datepicker_target: "startDate"}  } %>
+        <%= f.input :end_date,
+                  as: :string,
+                  input_html: {data: {datepicker_target: "endDate"} } %>
+      </div>
       <%= f.submit "I book my slip!", class: "btn btn-primary" %>
     <% end %>
   <br>

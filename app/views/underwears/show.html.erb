@@ -12,7 +12,7 @@
 
 <%# ----------- CARD DETAIL SLIP ------------ %>
 
-<div class="container pt-3 ">
+<div class="container pt-3 mt-3 ">
   <div class="row justify-content-center">
     <div class="card w-75 bg-white border rounded shadow-sm d-flex flex-row">
 
@@ -23,6 +23,7 @@
       </div>
 
       <div class="card-body col-8 d-flex flex-column justify-content-start">
+      <div class="ms-3">
         <h5 class="card-title display-5"><%= @underwear.title %></h5>
         <p class="card-text detail-slip-user">Slip ajouté par : <em><strong><%= @underwear.user.first_name %><%= @underwear.user.last_name %></strong></em></p>
         <p class="card-text"><%= @underwear.description %></p>
@@ -40,6 +41,7 @@
               <%= link_to "Connecte-toi pour réserver", new_user_session_path, class: "btn btn-primary text-white" %>
             </div>
         <% end %>
+       </div>
 
       </div>
     </div>
