@@ -36,7 +36,8 @@
 
   <div class="d-flex ms-3 mb-3 justify-content-between align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-primary py-2 px-4 me-3">Détails </button>
+            <%# <button type="button" class="btn btn-sm btn-outline-primary py-2 px-4 me-3">Détails </button> %>
+            <%= link_to "En savoir plus", underwear_path(underwear),class: "btn btn-sm btn-outline-primary py-2 px-4 me-3" %>
             <button type="button" class="btn btn-sm btn-outline-primary py-2 px-4">Louer</button>
           </div>
         </div>
