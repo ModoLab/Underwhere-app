@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @underwear = Underwear.find(params[:underwear_id])
+    @unavailable_dates = @underwear.unavailable_dates
     @user = @booking.user
   end
 
@@ -10,7 +11,7 @@ class BookingsController < ApplicationController
     @underwear = Underwear.find(params[:underwear_id])
     @booking.user = current_user
     @booking.underwear = @underwear
-    @booking.save
+    @unavailable_dates = @underwear.unavailable_dates
     if @booking.save
       redirect_to user_path(current_user)
     else

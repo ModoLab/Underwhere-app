@@ -5,6 +5,12 @@ class Underwear < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
 
+  # Disponibilité des Undewear
+  def unavailable_dates
+    bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
   include PgSearch::Model
   pg_search_scope :search_by_title_and_description,
   against: [ :title, :description ],
