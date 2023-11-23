@@ -27,16 +27,23 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
+
 }
 
 #card {
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 5px;
   min-width: 400px;
   max-width: 400px;
   min-height: 500px;
+  margin-bottom: 10px;
 }
 
 #ancre-index {
   font-weight: 500;
+}
+
+.imgg {
+  background-position: center;
+  background-position-y: 50%;
 }

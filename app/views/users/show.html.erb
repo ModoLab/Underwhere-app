@@ -3,9 +3,9 @@
 
     <div class="col-12 d-flex flex-column mb-5 mt-3 ">
 
-      <div class="col-12 border bg-white p-3 rounded shadow-sm">
-        <h3 class="text-center">Salut <strong><%= @user.first_name %></strong> ✌️</h3>
-        <h5 class="text-center border-bottom pb-2">Voici tes infos personnelles :</h5>
+      <div class="col-12 border bg-light p-3 rounded shadow-sm">
+        <h5 class="text-center">Salut <strong><%= @user.first_name %></strong></h5>
+        <h3 class="text-center border-bottom pb-2">Voici tes infos personnelles</h3>
 
         <div class="col-12 d-flex justify-space-around">
           <div class="col-8">
@@ -13,12 +13,13 @@
             <p><strong>Nom :</strong> <%= @user.last_name %></p>
             <p><strong>Adresse mail :</strong> <%= @user.email %></p>
             <div>
-              <p><strong>Date de création du profil :</strong></p>
+              <p><strong>Date de création du profil</strong></p>
               <p><%= @user.created_at %></p>
             </div>
           </div>
 
           <div class="col-4">
+            <p><strong>Mon adresse:</strong> <%= @user.address %></p>
             <p><strong>Photo de profil :</strong></p>
             <%# AJOUTER LA PHOTO DE PROFIL UPLOAD PAR LE USER (CLOUDINARY) %>
           </div>
@@ -29,8 +30,8 @@
 
     <div class="col-12 d-flex flex-column mb-5 ">
 
-      <div class="col-12 border bg-white p-3 rounded shadow-sm">
-        <h3 class="text-center">Mes réservations en cours :</h3>
+      <div class="col-12 border bg-light p-3 rounded shadow-sm">
+        <h3 class="text-center">Mes réservations en cours</h3>
 
         <div class="col-12 d-flex justify-space-around">
           <% if @user.bookings.present? %>
@@ -43,7 +44,7 @@
                   <h2 class="mt-2"><%= booking.underwear.title %></h2>
                   <p class="mt-2"><%= booking.underwear.description %></p>
                 </div>
-                <%= link_to "Supprimer", booking_path(booking), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
+                <%= link_to "Annuler ma réservation", booking_path(booking), class: "btn btn-primary text-white", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
               </div>
             <% end %>
           <% else %>
@@ -56,8 +57,8 @@
 
     <div class="col-12 d-flex flex-column ">
 
-      <div class="col-12 border bg-white p-3 rounded shadow-sm">
-        <h3 class="text-center">Mes slips en location :</h3>
+      <div class="col-12 border bg-light p-3 rounded shadow-sm">
+        <h3 class="text-center">Mes slips en location</h3>
 
         <div class="d-flex">
           <% if @underwears.present? %>
@@ -70,7 +71,7 @@
                   <h2 class="mt-2"><%= underwear.title %></h2>
                   <p class="mt-2"><%= underwear.description %></p>
                 </div>
-                <%= link_to "Supprimer", underwear_path(underwear), class: "btn btn-primary text-white", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
+                <%= link_to "Supprimer mon annonce", underwear_path(underwear), class: "btn btn-primary text-white", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
               </div>
             <% end %>
           <% else %>

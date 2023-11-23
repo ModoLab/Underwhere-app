@@ -1,17 +1,20 @@
 
 <%# ----------- BANNER HERO ---------- %>
-<div class="banner py-5 hero-index" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.ctfassets.net/gscn32h7ckds/4LhtA3RN4lmeKs2fEuLaIg/ed06210e1db05ce71d419788a1a5977b/underwear_outlet_banner_CM.jpg);">
+<div class="banner py-5 hero-index imgg" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/3ea6e587617411.5dbdb39814ab8.jpg);">
   <div class="container hero-details ms-5 mt-5 ps-5 pt-5">
-    <h1 class="display-3 text-white hero-title" >YOUR SLIP</h1>
-    <h1 class="display-5 text-white mb-4 hero-title">EVERYWHERE</h1>
-    <%= link_to "Voir les offres", "#ancre-index", class: "btn btn-primary text-white rounded shadow-sm" %>
+    <div class="ms-5">
+    <h1 class="display-3 text-white hero-title ms-5" >Je pense,</h1>
+    <h1 class="display-3 text-white mb-4 hero-title ms-5">donc je <em>slip</em> !</h1>
+    <%= link_to "Voir les offres", "#ancre-index", class: "btn btn-primary text-white px-4 py-2  ms-5" %>
+    </div>
   </div>
 </div>
 
 <%# ---------  GENERATION DES CARDS ----------  %>
 
 <%# INTRO %>
-<h1 class="text-center mt-5 mb-5 display-4 index-subtitle" id="ancre-index">It's always time to slip</h1>
+<h1 class="text-center mt-5 mb-2 display-4 index-subtitle" id="ancre-index">It's always time to slip</h1>
+<h3 class="text-center mb-5 index-subtitle" id="ancre-index">Découvrez nos slips disponibles :</h3>
 
  <%# SEARCHBAR %>
 <div class="row justify-content-center mb-3">
@@ -26,9 +29,6 @@
     <% end %>
   </div>
 </div>
-
-
-
 
 <%# CARD %>
 <div class="container">
@@ -71,9 +71,31 @@
 <% end %>
 <%= render "underwears/form", underwear: @underwear %>
 </div>
+
+
+<%# ------------TEST INDEX---------- %>
+
+<div class="col-12 mt-5 bg-dark d-flex">
+
+<div class="col-6  d-flex flex-column">
+  <div class="h-100 p-5 ms-3 text-white ">
+    <h2><q><em>Changez de slip, pas de compte en banque. Louez avec style, économisez avec classe</em></q></h2>
+    <p>Chez Underwhere, nous ne faisons rien comme les autres ! Si vous souhaitez en savoir un peu plus sur notre équipe et notre univers, c'est par ici ! </p>
+    <%= link_to "En savoir plus", "about_us", class: "btn btn-outline-primary text-white px-4 py-2  " %>
+  </div>
+</div>
+
+<div class="col-6 d-flex align-items-center justify-content-center">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="150" viewBox="0 0 60 60" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M59.368 30.97a2.956 2.956 0 0 0 .6-2.281L57.52 12.553A3 3 0 0 0 54.533 10H5.467a3 3 0 0 0-2.987 2.554L.033 28.689a2.956 2.956 0 0 0 .6 2.281 3.052 3.052 0 0 0 2.106 1.152c4.492.432 15.273 2.406 18.342 11.407a9.557 9.557 0 0 0 3.407 4.671A9.277 9.277 0 0 0 30 50a9.457 9.457 0 0 0 8.919-6.468c3.07-9 13.851-10.978 18.343-11.41a3.052 3.052 0 0 0 2.106-1.152ZM5.467 12h49.066a1.021 1.021 0 0 1 1.01.853L55.868 15H4.132l.325-2.146A1.021 1.021 0 0 1 5.467 12ZM2.209 29.74a.978.978 0 0 1-.2-.752L3.828 17h16.751l-5.018 17.017A31.183 31.183 0 0 0 2.93 30.132a1.027 1.027 0 0 1-.721-.392Zm34.816 13.149A7.458 7.458 0 0 1 30 48a7.284 7.284 0 0 1-4.328-1.416 7.679 7.679 0 0 1-2.7-3.7 16 16 0 0 0-5.674-7.7L22.664 17h14.672L42.7 35.191a16 16 0 0 0-5.675 7.698Zm7.414-8.872L39.421 17h16.751l1.816 11.988a.974.974 0 0 1-.2.752 1.027 1.027 0 0 1-.721.392 31.188 31.188 0 0 0-12.628 3.885Z" fill="#ffffff" opacity="1" data-original="#000000" class=""></path></g></svg>
+</div>
+
+
+</div>
+
+
 <%# --------- CAROUSSEL BANNER ------------- %>
 
-<div id="carouselSlidesOnly" class="carousel slide my-5" data-bs-ride="carousel">
+<div id="carouselSlidesOnly" class="carousel slide mb-5" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <%= image_tag("index-carrousel/banner_1.png", alt: "Logo UnderWhere",class: "d-block w-100", id: "logo-underwear") %>
