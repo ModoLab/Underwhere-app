@@ -2,11 +2,11 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="forms"
 export default class extends Controller {
-  static targets = ["togglableElement"]
+  
   connect() {
   }
-  fire() {
+  displayModal() {
     event.preventDefault();
-    this.togglableElementTarget.classList.toggle("d-none");
+    //console.log("coucou")
   }
 }
