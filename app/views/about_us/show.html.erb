@@ -152,9 +152,12 @@
 
 <div class="col-6  d-flex flex-column">
   <div class="h-100 p-5 ms-3 text-white ">
-    <h2><q><em>Changez de slip, pas de compte en banque. Louez avec style, économisez avec classe</em></q></h2>
-    <p>Chez Underwhere, nous ne faisons rien comme les autres ! Si vous souhaitez en savoir un peu plus sur notre équipe et notre univers, c'est par ici ! </p>
-    <%= link_to "En savoir plus", "about_us", class: "btn btn-outline-primary text-white px-4 py-2  " %>
+    <h2 class="mb-4">Ne ratez aucune info,</br> inscrivez-vous à notre <span class="text-primary fw-light">Slip</span>letter !</h2>
+
+    <div>
+    <input type="email" id="email" pattern=".+@example\.com" size="30" required class="btn-outline-primary" placeholder="Adresse email"/>
+    <button class="btn btn-outline-primary">S'inscrire</button>
+    </div>
   </div>
 </div>
 
