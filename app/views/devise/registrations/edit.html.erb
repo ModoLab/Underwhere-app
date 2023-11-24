@@ -3,18 +3,30 @@
   <div class="row d-flex justify-content-center ">
     <div class="col-8 d-flex flex-column justify-content-center card border bg-white px-3 py-3 shadow">
 
-      <h2 class="text-center">Modifier mon profil <% resource_name.to_s.humanize %></h2>
+      <h3 class="text-center mb-2">Modifier mon profil <% resource_name.to_s.humanize %></h3>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
 
         <div class="form-inputs">
+          <%= f.input :first_name,
+                      label: "Votre prénom",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "First Name" }%>
+          <%= f.input :last_name,
+                      label:"Votre nom",
+                      required: true,
+                      input_html: { autocomplete: "Last Name" }%>
+          <%= f.input :address,
+                      label:"Entrez votre adresse",
+                      required: true,
+                      input_html: { autocomplete: "Address" }%>
           <%= f.input :email, required: true, autofocus: true %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
-
           <%= f.input :password,
                       label: "Mot de passe",
                       hint: "Laissez vide si vous ne souhaitez pas le modifier",
@@ -30,16 +42,16 @@
         </div>
 
         <div class="form-actions border-bottom">
-          <%= f.button :submit, "Mettre à jour", class: "btn btn-primary py-2 px-4 me-3 mb-4" %>
+          <%= f.button :submit, "Mettre à jour", class: "btn btn-primary text-whitepy-2 px-4 me-3 mb-4" %>
         </div>
       <% end %>
+      <h5 class="text-center">Je souhaite supprimer mon compte</h5>
+      <div class="d-flex justify-content-center mt-2">
 
-      <div class="mt-2">
-        <h5>Je souhaite supprimer mon compte</h5>
         <%= button_to "Supprimer définitivement", registration_path(resource_name), data: { confirm: "Etes vous certain ?", turbo_confirm: "Etes vous certain ?" }, method: :delete, class: "btn btn-outline-primary py-2 px-4 me-3 mb-2 mt-2"  %>
       </div>
 
-      <div class="mt-3">
+      <div class="d-flex justify-content-center mt-3">
         <%= link_to "Retour", :back %>
       </div>
 
