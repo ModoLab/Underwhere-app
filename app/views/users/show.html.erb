@@ -42,6 +42,7 @@
                 <% end %>
                 <div class="card-product-infos">
                   <h2 class="mt-2"><%= booking.underwear.title %></h2>
+                  <p>Réservé du <%= booking.start_date %> au <%= booking.end_date %></p>
                   <p class="mt-2"><%= booking.underwear.description %></p>
                 </div>
                 <%= link_to "Annuler ma réservation", booking_path(booking), class: "btn btn-primary text-white mb-2", data: {turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir annuler cette réservation ?"} %>
