@@ -60,7 +60,7 @@
       <div class="col-12 border bg-light p-3 rounded shadow-sm">
         <h4 class="text-center">Mes slips en location</h4>
 
-        <div class="d-flex">
+        <div class="d-flex flex-column">
           <% if @underwears.present? %>
             <% @underwears.each do |underwear| %>
               <div class="card-product my-5 mx-1 p-2 border shadow-sm bg-white rounded col-3">
@@ -74,8 +74,26 @@
                 <%= link_to "Supprimer mon annonce", underwear_path(underwear), class: "btn btn-primary text-white mb-2", data: {turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir supprimer ce slip ?"} %>
               </div>
             <% end %>
+              <div class="col-12 d-flex justify-content-center mt-5">
+                <div class="row" >
+                    <div class="col-12 d-flex justify-content-center ">
+                      <button data-bs-toggle="modal" data-bs-target="#modalNewUnderwear" class="btn btn-primary text-white px-4 py-2" >Ajoute un slip!</button>
+                      <%= render "underwears/form", underwear: @underwear %>
+                    </div>
+                </div>
+              </div>
           <% else %>
-            <p class="text-center">Aucun slip.</p>
+            <div>
+              <p class="text-center">Aucun slip.</p>
+            <div>
+            <div class="col-12 d-flex justify-content-center mt-5">
+              <div class="row" >
+                    <div class="col-12 d-flex justify-content-center ">
+                      <button data-bs-toggle="modal" data-bs-target="#modalNewUnderwear" class="btn btn-primary text-white px-4 py-2" >Ajoute un slip!</button>
+                      <%= render "underwears/form", underwear: @underwear %>
+                    </div>
+              </div>
+            </div>
           <% end %>
         </div>
       </div>

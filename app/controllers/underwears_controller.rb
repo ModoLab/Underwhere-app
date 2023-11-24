@@ -27,7 +27,7 @@ class UnderwearsController < ApplicationController
     @underwear = Underwear.new(underwear_params)
     @underwear.user = current_user
     if @underwear.save
-      redirect_to underwears_path
+      redirect_to user_path(current_user)
     else
       @underwears = Underwear.all
       render :index, status: :unprocessable_entity
