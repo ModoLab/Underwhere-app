@@ -9,6 +9,9 @@
 
         <div class="col-12 d-flex justify-space-around">
           <div class="col-8">
+          <div class="d-flex justify-content-center">
+            <%= link_to "Editer mon profil",edit_user_registration_path, class:"btn btn-primary"   %>
+          </div>
             <p><strong>Prénom :</strong> <%= @user.first_name %></p>
             <p><strong>Nom :</strong> <%= @user.last_name %></p>
             <p><strong>Adresse mail :</strong> <%= @user.email %></p>
