@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   get 'about_us', to: 'about_us#show'
   # Defines the root path route ("/")
   # root "posts#index"
+  devise_scope :user do
+  patch '/users/update_profile', to: 'users#update', as: 'update_user_profile'
+end
 end
