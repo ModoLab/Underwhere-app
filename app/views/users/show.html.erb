@@ -44,7 +44,7 @@
                   <h2 class="mt-2"><%= booking.underwear.title %></h2>
                   <p class="mt-2"><%= booking.underwear.description %></p>
                 </div>
-                <%= link_to "Annuler ma réservation", booking_path(booking), class: "btn btn-primary text-white mb-2", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
+                <%= link_to "Annuler ma réservation", booking_path(booking), class: "btn btn-primary text-white mb-2", data: {turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir annuler cette réservation ?"} %>
               </div>
             <% end %>
           <% else %>
@@ -71,7 +71,7 @@
                   <h2 class="mt-2"><%= underwear.title %></h2>
                   <p class="mt-2"><%= underwear.description %></p>
                 </div>
-                <%= link_to "Supprimer mon annonce", underwear_path(underwear), class: "btn btn-primary text-white mb-2", data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
+                <%= link_to "Supprimer mon annonce", underwear_path(underwear), class: "btn btn-primary text-white mb-2", data: {turbo_method: :delete, turbo_confirm: "Es-tu sûr de vouloir supprimer ce slip ?"} %>
               </div>
             <% end %>
           <% else %>
