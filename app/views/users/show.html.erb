@@ -4,7 +4,7 @@
     <div class="col-12 d-flex flex-column mb-5 mt-3 ">
 
       <div class="col-12 border bg-light p-3 rounded shadow-sm">
-        <h4 class="text-center">Salut <strong><%= @user.first_name %></strong></h4>
+        <h4 class="text-center">Salut <strong class="prenom-rose"><%= @user.first_name %></strong></h4>
         <h4 class="text-center border-bottom pb-2">Voici tes infos personnelles</h4>
 
         <div class="col-12 d-flex justify-space-around">
@@ -21,7 +21,7 @@
           </div>
 
         </div>
-        <div class=" p-2">
+        <div class="d-flex justify-content-center p-2">
                 <%= link_to "Editer mon profil",edit_user_registration_path, class:"btn btn-primary text-white"   %>
           </div>
       </div>

@@ -28,6 +28,10 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
 }
+.prenom-rose{
+  color: #EB5196;
+}
+
 
 #card {
   overflow: hidden;
@@ -36,6 +40,7 @@
   max-width: 400px;
   min-height: 500px;
   margin-bottom: 10px;
+  min-height: 50vh;
 }
 
 #ancre-index {
