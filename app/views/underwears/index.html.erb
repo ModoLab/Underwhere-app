@@ -13,11 +13,11 @@
 <%# ---------  GENERATION DES CARDS ----------  %>
 
 <%# INTRO %>
-<h1 class="text-center mt-5 mb-2 display-4 index-subtitle" id="ancre-index">It's always time to slip</h1>
-<h3 class="text-center mb-5 index-subtitle" id="ancre-index">Découvrez nos slips disponibles :</h3>
+<h1 class="text-center mt-5 mb-2 display-4 index-subtitle">It's always time to slip</h1>
+<h3 class="text-center mb-5 index-subtitle" >Découvrez nos slips disponibles :</h3>
 
  <%# SEARCHBAR %>
-<div class="row justify-content-center mb-3">
+<div class="row justify-content-center mb-3" id="ancre-index">
   <div class="col-sm-8 my-3">
     <%= form_with url: underwears_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
