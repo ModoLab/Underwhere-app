@@ -8,8 +8,8 @@
                   as: :string,
                   input_html: {data: {datepicker_target: "endDate"} } %>
       </div>
-      <%= f.submit "I book my slip!", class: "btn btn-primary" %>
+      <%= f.submit "Je réserve ce slip ", class: "btn btn-primary text-white" %>
     <% end %>
   <br>
-  <%= link_to "Back to the slip!", underwear_path(@underwear), class: "btn btn-info"  %>
+  <%= link_to "Retour", underwear_path(@underwear), class: "btn btn-outline-primary"  %>
 </div>
